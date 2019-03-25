@@ -4,19 +4,33 @@ all:
 	@echo "Compiling.";\
 	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator.java
 
+.PHONY: glue
+glue:
+	@echo "Compiling.";\
+	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_Glue.java
+	@printf "";\
+	$(MAKE) glue -C cls/ -s
+
+.PHONY: fuzzy
+fuzzy: 
+	@echo "Compiling.";\
+	javac -cp "src/" -d "cls/" src/fuzzy/StandardNegator.java src/fuzzy/Main.java
+	@printf "";\
+	$(MAKE) -C cls/ -s
+
 .PHONY: ioc
 ioc:
 	@echo "Compiling IoC.";\
-	javac -cp "src/:spring-framework-5.1.5.RELEASE/libs/*" -d "cls/" src/app/FuzzyCalculator_IoC.java
+	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_IoC.java
 
 
 .PHONY: run
 run:
 	@printf "";\
-	java -classpath "cls/ " app.FuzzyCalculator
+	java -cp ".:build/fuzzy.jar" -classpath "cls/" app.FuzzyCalculator
 
 
 .PHONY: clean
 clean:
 	@echo "Cleaning.";\
-	rm -rf cls/fuzzy/* cls/ifce/* > /dev/null 2> /dev/null
+	rm -rf cls/*/*.class > /dev/null 2> /dev/null
