@@ -9,12 +9,16 @@ glue:
 	@echo "Compiling.";\
 	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_Glue.java > /dev/null
 	@printf "";\
+	mkdir build/ 2> /dev/null
+	@printf "";\
 	$(MAKE) glue -C cls/ -s
 
 .PHONY: fuzzy
 fuzzy: 
 	@echo "Compiling.";\
 	javac -cp "src/" -d "cls/" src/fuzzy/StandardNegator.java src/fuzzy/Main.java
+	@printf "";\
+	mkdir build/ 2> /dev/null	
 	@printf "";\
 	$(MAKE) -C cls/ -s
 
