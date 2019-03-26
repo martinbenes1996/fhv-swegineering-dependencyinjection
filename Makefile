@@ -7,7 +7,7 @@ all:
 .PHONY: glue
 glue:
 	@echo "Compiling.";\
-	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_Glue.java
+	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_Glue.java > /dev/null
 	@printf "";\
 	$(MAKE) glue -C cls/ -s
 
@@ -29,8 +29,13 @@ run:
 	@printf "";\
 	java -cp ".:build/fuzzy.jar" -classpath "cls/" app.FuzzyCalculator
 
+.PHONY: gluerun
+gluerun:
+	@printf "";\
+	java -jar build/glue.jar
+
 
 .PHONY: clean
 clean:
 	@echo "Cleaning.";\
-	rm -rf cls/*/*.class > /dev/null 2> /dev/null
+	rm -rf cls/*/*.class build/*.jar > /dev/null 2> /dev/null

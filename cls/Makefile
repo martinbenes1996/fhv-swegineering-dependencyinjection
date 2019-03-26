@@ -8,4 +8,4 @@ fuzzy:
 .PHONY: glue
 glue:
 	@echo "Compressing $@.";\
-	jar cvfm ../build/glue.jar app/manifest_glue.txt app/* fuzzy/* ifce/*
+	jar cvfm ../build/glue.jar app/manifest_glue.txt app/* fuzzy/* ifce/* > /dev/null
