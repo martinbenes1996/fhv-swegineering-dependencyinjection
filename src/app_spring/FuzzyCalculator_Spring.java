@@ -1,5 +1,5 @@
 
-package app_ioc;
+package app_spring;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +7,7 @@ import ifce.NegatorIfce;
 import app.Reader;
 
 @SpringBootApplication
-public class FuzzyCalculator_IoC {
+public class FuzzyCalculator_Spring {
 
     @Autowired
     private static NegatorIfce negator;
