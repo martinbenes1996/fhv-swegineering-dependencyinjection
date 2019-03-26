@@ -18,10 +18,10 @@ fuzzy:
 	@printf "";\
 	$(MAKE) -C cls/ -s
 
-.PHONY: ioc
-ioc:
-	@echo "Compiling IoC.";\
-	javac -cp "src/" -d "cls/" src/app/FuzzyCalculator_IoC.java
+.PHONY: spring
+spring:
+	@echo "Compiling Spring.";\
+	javac -cp "src/" -d "cls/" src/app_spring/FuzzyCalculator_Spring.java
 
 
 .PHONY: run
